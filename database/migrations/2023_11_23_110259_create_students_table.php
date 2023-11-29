@@ -16,16 +16,16 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('middlename');
-            $table->string('section');
-            $table->string('gender');
+            $table->enum('section',['Helium','Hydrogen','Ruby','Emerald','Amethyst','Pearl','Carbon','Gold']);
+            $table->enum('gender',['Male','Female','Others']);
             $table->date('dob');
-            $table->string('studentnum');
-            $table->string('lrnno');
+            $table->bigInteger('studentnum')->unsigned();
+            $table->bigInteger('lrnno')->unsigned();
             $table->string('homeaddress');
             $table->string('emailaddress');
             $table->string('mobile');
-            $table->string('gradelvl');
-            $table->string('strand');
+            $table->enum('gradelvl',['11','12']);
+            $table->enum('strand',['TVL','ABM','HUMMS','STEM','GAS']);
             $table->timestamps();
         });
     }

@@ -18,4 +18,16 @@ Route::get('/', function () {
 });
 
 
-Route::resource("/student", StudentController::class);
+Route::get("/student", [StudentController::class, 'index'])->name('students\index');
+
+Route::get('/index/create', [StudentController::class, 'create'])->name('students\create');
+
+Route::post('/student', [StudentController::class, 'store'])->name('students\store');
+
+Route::delete('/student/{id}', [StudentController::class, 'destroy'])->name('students\destroy');
+
+Route::get('/student/{inventory}', [StudentController::class, 'show'])->name('students\show');
+
+Route::get('/student/{inventory}/edit', [StudentController::class, 'edit'])->name('students\edit');
+
+Route::put('/student/{id}', [StudentController::class, 'update'])->name('students\update');
